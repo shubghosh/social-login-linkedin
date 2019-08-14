@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { FormGroup, FormControl, Validators, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,12 +12,12 @@ import { ProfileService } from 'src/app/profile.service';
 export class HomeComponent implements OnInit {
   profileJson: string = null;
   form: FormGroup
-  submitted :boolean = false
+  submitted :boolean = false;
   
+
   name = new FormControl("");
   email = new FormControl("");
   password = new FormControl("", Validators.required);
-  phone = new FormControl("", Validators.required);
 
   constructor(public auth: AuthService, private fb: FormBuilder, private profileService : ProfileService) {
     this.form = fb.group({
@@ -33,9 +33,11 @@ export class HomeComponent implements OnInit {
         this.form.setValue({
           name : profile.name,
           email : profile.email,
-          password :'',
+          password : null
         })
+        console.log(this.form.value)
         this.profileJson = JSON.stringify(profile, null, 2)
+
       }
     );
   }

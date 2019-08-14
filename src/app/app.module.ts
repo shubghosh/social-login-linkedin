@@ -11,7 +11,7 @@ import { CallbackComponent } from './pages/callback/callback.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoadingComponent } from './components/loading/loading.component';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms'
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 export function hljsLanguages() {
   return [{ name: 'json', func: json }];
 }
@@ -22,7 +22,7 @@ export function hljsLanguages() {
     CallbackComponent,
     HomeComponent,
     NavBarComponent,
-    LoadingComponent
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
